@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ course.title }}{% endblock %}
+
+{% block content %}
+    <h2>{{ course.title }}</h2>
+    <p>{{ course.description }}</p>
+    <hr>
+    <h3>سرفصل‌ها</h3>
+    <p>{{ course.syllabus|linebreaksbr }}</p>
+    <hr>
+    <h3>کلاس‌های ارائه شده برای این دوره</h3>
+    {% for class in classes %}
+        <div style="border-left: 3px solid #0056b3; padding-left: 15px; margin-bottom: 15px;">
+            <h4>{{ class.title }}</h4>
+            <p><strong>مربی:</strong> {{ class.instructor.get_full_name|default:"مشخص نشده" }}</p>
+            <p><strong>ظرفیت:</strong> {{ class.capacity }} نفر</p>
+            <p><strong>زمانبندی:</strong> {{ class.days_of_week }}، ساعت {{ class.start_time|time:"H:i" }} تا {{ class.end_time|time:"H:i" }}</p>
+            <p><strong>تاریخ ترم:</strong> از {{ class.start_date }} تا {{ class.end_date }}</p>
+            <p><strong>شهریه این کلاس:</strong> {{ class.get_tuition_fee }} ریال</p>
+        </div>
+    {% empty %}
+        <p>در حال حاضر هیچ کلاسی برای این دوره تعریف نشده است.</p>
+    {% endfor %}
+{% endblock %}

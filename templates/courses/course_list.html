@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}لیست دوره‌ها{% endblock %}
+
+{% block content %}
+    <h2>تمامی دوره‌های آموزشی</h2>
+    {% for course in courses %}
+        <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px; border-radius: 5px;">
+            <h3><a href="{% url 'courses:course_detail' course.pk %}">{{ course.title }}</a></h3>
+            <p>{{ course.description|truncatewords:30 }}</p>
+            <p><strong>شهریه پایه:</strong> {{ course.base_tuition_fee }} ریال</p>
+        </div>
+    {% empty %}
+        <p>در حال حاضر هیچ دوره‌ای تعریف نشده است.</p>
+    {% endfor %}
+{% endblock %}

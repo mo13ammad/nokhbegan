@@ -42,10 +42,10 @@ class Command(BaseCommand):
 
         # Create teachers
         teachers = []
-        for _ in range(5):
+        for i in range(5):
             first_name = fake.first_name()
             last_name = fake.last_name()
-            username = f"teacher_{first_name.lower()}"
+            username = f"teacher_{first_name.lower()}_{i}"
             user = User.objects.create_user(username, f'{username}@example.com', 'password123')
             user.first_name = first_name
             user.last_name = last_name
@@ -57,11 +57,11 @@ class Command(BaseCommand):
 
         # Create parents and students
         students = []
-        for _ in range(20):
+        for i in range(20):
             # Create parent
             parent_first_name = fake.first_name()
             parent_last_name = fake.last_name()
-            parent_username = f"parent_{parent_first_name.lower()}"
+            parent_username = f"parent_{parent_first_name.lower()}_{i}"
             parent_user = User.objects.create_user(parent_username, f'{parent_username}@example.com', 'password123')
             parent_user.first_name = parent_first_name
             parent_user.last_name = parent_last_name
@@ -73,7 +73,7 @@ class Command(BaseCommand):
             # Create student linked to parent
             student_first_name = fake.first_name()
             student_last_name = parent_last_name # Same last name
-            student_username = f"student_{student_first_name.lower()}"
+            student_username = f"student_{student_first_name.lower()}_{i}"
             student_user = User.objects.create_user(student_username, f'{student_username}@example.com', 'password123')
             student_user.first_name = student_first_name
             student_user.last_name = student_last_name

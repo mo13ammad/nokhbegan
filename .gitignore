@@ -1,0 +1,24 @@
+# Laravel & PHP
+/vendor
+/node_modules
+/public/storage
+/storage/*.key
+/.env
+/.env.*.local
+Homestead.yaml
+Homestead.json
+/.vagrant
+
+# Filament
+/resources/views/vendor/filament
+/public/vendor/filament
+
+# IDE/Editor
+.idea
+.vscode
+*.swp
+*.swo
+
+# System Files
+Thumbs.db
+.DS_Store

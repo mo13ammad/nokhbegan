@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block title %}صفحه اصلی{% endblock %}
+
+{% block content %}
+    <h2>به سامانه مدیریت آموزشگاه خوش آمدید</h2>
+    <p>این سامانه برای مدیریت یکپارچه امور آموزشی، مالی و ارتباطی آموزشگاه طراحی شده است.</p>
+    <p>از منوی بالا می‌توانید به بخش‌های مختلف سامانه دسترسی پیدا کنید.</p>
+    <a href="{% url 'courses:course_list' %}" style="display: inline-block; background: #007bff; color: white; padding: 10px 15px; text-decoration: none; border-radius: 5px; margin-top: 10px;">
+        مشاهده لیست دوره‌ها
+    </a>
+{% endblock %}
